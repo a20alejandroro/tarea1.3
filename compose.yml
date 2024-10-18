@@ -10,9 +10,9 @@ services:
       - ./dnsserver/conf/primario/named.conf.local:/etc/bind/named.conf.local
       - ./dnsserver/conf/primario/db.starwars.lan:/etc/bind/db.starwars.lan
       - ./dnsserver/conf/primario/db.20.168.192:/etc/bind/db.20.168.192
-  dartsidious:
+  darthsidious:
     build: dnsserver
-    hostname: dartsidious
+    hostname: darthsidious
     networks:
       rededns:
         ipv4_address: 192.168.20.11
@@ -24,9 +24,10 @@ services:
     hostname: eq1
     networks:
       rededns:
-          ipv4_address: 192.168.20.100
+          ipv4_address: 192.168.20.12
     dns:
       - 192.168.20.10
+      - 192.168.20.11
 networks:
   rededns:
     ipam:
